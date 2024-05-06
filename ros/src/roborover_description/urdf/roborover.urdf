@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<robot name="roborover">
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.2 0.2 1 1"/>
+  </material>
+  <!-- base link -->
+  <link name="base_link">
+
+  </link>
+  <!-- chassis link -->
+  <link name="roborover_base">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.25 0.15 0.15"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+  <joint name="base_link_to_roborover_base" type="fixed">
+    <parent link="base_link"/>
+    <child link="roborover_base"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+  <!-- Robot Footprint -->
+  <link name="base_footprint">
+    <visual>
+      <geometry>
+        <cylinder length="0.0001" radius="0.01"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.035"/>
+  </joint>
+  <!-- Camera Link -->
+  <link name="camera_link">
+    <visual>
+      <geometry>
+        <sphere radius="0.04"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+  <joint name="camera_to_base" type="fixed">
+    <parent link="roborover_base"/>
+    <child link="camera_link"/>
+    <origin rpy="0 0 0" xyz="0.122 0.0 0.035"/>
+  </joint>
+</robot>
