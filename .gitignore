@@ -1,5 +1,11 @@
 devel/
 logs/
+ros/log/
+ros/src/log/
+ros/log/latest_build
+ros/install
+ros/.vscode
+ros/src/.vscode
 build/
 bin/
 lib/
